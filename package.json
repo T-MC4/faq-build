@@ -1,9 +1,8 @@
 {
-  "name": "gpt4-langchain-pdf-chatbot",
+  "name": "faq-build",
   "version": "0.1.0",
   "private": true,
   "license": "MIT",
-  "author": "Mayooear<twitter:@mayowaoshin>",
   "type": "module",
   "scripts": {
     "dev": "next dev",
@@ -45,7 +44,7 @@
     "typescript": "^4.9.5"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=16"
   },
   "keywords": [
     "starter",
