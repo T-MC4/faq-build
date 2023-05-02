@@ -25,7 +25,7 @@ export default function Home() {
   }>({
     messages: [
       {
-        message: "Hi, I'm an early version of Sherlock - Ask me anything about business. I'm to you what Jarvis is to Iron Man :)",
+        message: "I'm an AI trained by Air.ai to help you scale. Ask me any questions you might have regarding offers, fulfillment, traffic, leads, sales, Max, Midas, and everything about scaling your business",
         type: 'apiMessage',
       },
     ],
