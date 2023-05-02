@@ -24,18 +24,18 @@ export const run = async () => {
 
     /* Split text into chunks */
     const textSplitter = new RecursiveCharacterTextSplitter({
-      chunkSize: 1000,
-      chunkOverlap: 200,
+      chunkSize: 500,
+      chunkOverlap: 100,
     });
 
     const docs = await textSplitter.splitDocuments(rawDocs);
     // console.log('split docs', docs);
 
-    console.log('creating vector store...');
     /*create and store the embeddings in the vectorStore*/
+    console.log('creating vector store...');
     const embeddings = new OpenAIEmbeddings();
     const index = pinecone.Index(PINECONE_INDEX_NAME); //change to your own index name
-
+    
     //embed the PDF documents
     await PineconeStore.fromDocuments(docs, embeddings, {
       pineconeIndex: index,
