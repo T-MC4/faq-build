@@ -91,7 +91,7 @@ export default function Home() {
             ...state.messages,
             {
               type: 'apiMessage',
-              message: data.text,
+              message: data,
               sourceDocs: data.sourceDocuments,
             },
           ],
