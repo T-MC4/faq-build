@@ -3,7 +3,7 @@ import Layout from '@/components/layout';
 import styles from '@/styles/Home.module.css';
 import { Message } from '@/types/chat';
 import Image from 'next/image';
-import ReactMarkdown from 'react-markdown';
+import ReactMarkdown, { Components } from 'react-markdown';
 import LoadingDots from '@/components/ui/LoadingDots';
 import { Document } from 'langchain/document';
 import {
@@ -120,6 +120,18 @@ export default function Home() {
     }
   };
 
+  //enable unordered and ordered lists
+  const markdownComponents: Components = {
+    ul: ({ children }) => (
+      <ul className="list-disc list-outside pl-5">{children}</ul>
+    ),
+    ol: ({ children }) => (
+      <ol className="list-decimal list-outside pl-5">{children}</ol>
+    ),
+    li: ({ children }) => <li className="py-1">{children}</li>,
+  };
+  
+
   return (
     <>
       <Layout>
@@ -169,7 +181,7 @@ export default function Home() {
                       <div key={`chatMessage-${index}`} className={className}>
                         {icon}
                         <div className={styles.markdownanswer}>
-                          <ReactMarkdown linkTarget="_blank">
+                          <ReactMarkdown components={markdownComponents} linkTarget="_blank">
                             {message.message}
                           </ReactMarkdown>
                         </div>
@@ -191,7 +203,7 @@ export default function Home() {
                                     <h3>Source {index + 1}</h3>
                                   </AccordionTrigger>
                                   <AccordionContent>
-                                    <ReactMarkdown linkTarget="_blank">
+                                    <ReactMarkdown components={markdownComponents}  linkTarget="_blank">
                                       {doc.pageContent}
                                     </ReactMarkdown>
                                     <p className="mt-2">
